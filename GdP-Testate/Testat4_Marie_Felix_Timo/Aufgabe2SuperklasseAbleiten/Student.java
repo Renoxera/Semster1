@@ -3,16 +3,14 @@ package Aufgabe2SuperklasseAbleiten;
 import java.util.ArrayList;
 
 /**
- * 
  * @author Timo Reitmann, Felix Franz, Marie Salomon
- *
  */
 
 public class Student extends LernendePerson {
 	
-	static Student st1 = new Student();
-	static ArrayList<String> faecher = new ArrayList<String>();
-
+	static Student				st1		= new Student();
+	static ArrayList<String>	faecher	= new ArrayList<String>();
+	
 	/**
 	 * In der Main-Methode werden die Parameter der Superklasse gefüllt
 	 * 
@@ -27,15 +25,15 @@ public class Student extends LernendePerson {
 	}
 	
 	/**
-	 * In dieser Methode wird eine Hilfs-ArrayList befüllt, mit der dann die ArrayList der
-	 * Superklasse gefüllt wird.
+	 * In dieser Methode wird eine Hilfs-ArrayList befüllt, mit der dann die
+	 * ArrayList der Superklasse gefüllt wird.
 	 */
 	
-	public static  void befuelleFächer() {
+	public static void befuelleFächer() {
 		faecher.add("Mathe");
 		faecher.add("Deutsch");
 		faecher.add("Informatik");
 		faecher.add("Englisch");
 	}
-
+	
 }
