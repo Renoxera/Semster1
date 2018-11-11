@@ -4,7 +4,7 @@ package Aufgabe1AufrufKonstruktoren;
  * Die Klasse Auto erbt alle Eigenschaften und Attribute von der Klasse
  * Fahrzeug.
  * 
- * @author Marie Salomon, Felix Franz, Timo Reitmann
+ * @author Felix Franz, Timo Reitmann, Marie Salomon
  */
 public class Auto extends Fahrzeug {
 

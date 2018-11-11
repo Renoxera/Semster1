@@ -47,14 +47,13 @@ public class KontaktListe {
 		mail = ueberpruefeMail(mail);
 		geburtstag = ueberpruefeUndFormatiereGeburtstag(geburtstag);
 		
-		
 		if (telefonNummer != null && geburtstag != null && mail != null && name != null && adresse != null) {
 			kontaktListe.add(new Kontakt(name, telefonNummer, adresse, mail, geburtstag));
 			return true;
 		}
 		return false;
 	}
-
+	
 	/**
 	 * Überprüft, ob der übgergebene Name nicht leer ist und mit einem Buchstaben
 	 * beginnt.

@@ -71,9 +71,11 @@ public class AnwendungKontaktliste {
 			System.out.println();
 		} while (schleife);
 	}
+	
 	/**
-	 * Hilfsmethode, die "nur" einige Kontakte versucht anzulegen. 
-	 * Hilft bei Demo und Bugfixing als Testmethode.
+	 * Hilfsmethode, die "nur" einige Kontakte versucht anzulegen. Hilft bei Demo
+	 * und Bugfixing als Testmethode.
+	 * 
 	 * @param k
 	 */
 	@SuppressWarnings("unused")
@@ -127,6 +129,6 @@ public class AnwendungKontaktliste {
 		k.fuegeKontaktHinzu("Gerog Geburtstagstester", "+49 4562 5841", "", "", "31.9.1999");
 		System.out.println("Kontakt 24: (Gesammttester)");
 		k.fuegeKontaktHinzu("Albert Alles", "+49 4562 5835", "testweg 1", "tester@m.com", "1.1.1999");
-		System.out.println("\n Anlegung Beispielkontakte beendet. \n\n");	
+		System.out.println("\n Anlegung Beispielkontakte beendet. \n\n");
 	}
 }
