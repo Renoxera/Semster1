@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 ies ist ein test
+=======
+dies ist ein test
+w
+>>>>>>> branch 'master' of https://github.com/Renoxera/Semster1.git
