@@ -6,7 +6,7 @@ package Aufgabe2SuperklasseAbleiten;
  *
  */
 
-public class lehrendePerson extends Person{
+public class LernendePerson extends Person{
 	
 	private boolean prof;
 	private boolean dr;

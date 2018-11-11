@@ -8,7 +8,7 @@ import java.util.ArrayList;
  *
  */
 
-public class Schueler extends lernendePerson {
+public class Schueler extends LernendePerson {
 	
 	static Student sch1 = new Student();
 	static ArrayList<String> faecher = new ArrayList<String>();
