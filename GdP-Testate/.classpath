@@ -5,6 +5,7 @@
 	<classpathentry kind="src" path="Testat2_Marie_Felix_Timo"/>
 	<classpathentry kind="src" path="Testat3_Marie_Felix_Timo"/>
 	<classpathentry kind="src" path="Testat4_Marie_Felix_Timo"/>
+	<classpathentry kind="src" path="Testat5_Marie_Felix_Timo"/>
 	<classpathentry kind="lib" path="C:/Java/lib/helper.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -30,7 +30,7 @@ public class AnwendungKontaktliste {
 	 */
 	private static void ausfuehren(KontaktListe k) {
 		boolean schleife = true;
-//		beispielKontakte(k);
+		beispielKontakte(k);
 		
 		do {
 			System.out.println(

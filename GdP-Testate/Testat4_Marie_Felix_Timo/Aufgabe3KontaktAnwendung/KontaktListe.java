@@ -195,5 +195,4 @@ public class KontaktListe {
 		kontaktListe.stream().filter(k -> k.getName().toLowerCase().contains(name.toLowerCase()))
 				.forEach(k -> k.printLine());
 	}
-	
 }
