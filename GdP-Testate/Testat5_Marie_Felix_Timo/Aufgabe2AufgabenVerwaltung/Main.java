@@ -18,9 +18,9 @@ public class Main {
 					break;
 				case 2:
 					System.out.print(" [0] - alle \n [1] - erledigte \n [2] - unerledigte\n Eingabe: ");
-					int auswahl1 = reader.liesZahl(0,2);
-					System.out.print(" Sortiert nach:\n [0] - Datum\n [1] - ID: ");
-					int auswahl2 = reader.liesZahl(0,1);
+					int auswahl1 = reader.liesZahl(1,3);
+					System.out.print("Sortiert nach:\n [0] - Datum\n [1] - ID\n Eingabe: ");
+					int auswahl2 = reader.liesZahl(1,2);
 					a.ausgabeNach(auswahl2, auswahl1);
 					break;
 				case 3:
