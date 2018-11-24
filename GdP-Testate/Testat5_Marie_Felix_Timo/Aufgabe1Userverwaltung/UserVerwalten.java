@@ -18,7 +18,7 @@ public class UserVerwalten {
 
 	public static void main(String[] args) {
 		SimpleReader reader = new SimpleReader();
-		User[] userliste = new User[1000];
+		User[] userliste = new User[10];
 		boolean beenden = false;
 
 		int o = 0;
@@ -92,7 +92,7 @@ public class UserVerwalten {
 
 					}
 				}
-				System.out.println("Der Benutzername ist leider nicht vorhanden.");
+				if (!vorhanden) System.out.println("Der Benutzername ist leider nicht vorhanden.");
 
 				/*
 				 * Wenn der User vorhanden ist wird hier abgefragt was verändert werden soll und
@@ -106,8 +106,7 @@ public class UserVerwalten {
 					if (entscheidung == 1) { // Passwort ändern
 						System.out.println("Geben sie ein neues Passwort ein");
 						userliste[index].setPasswort(reader.liesText());
-					}
-					if (entscheidung == 2) { // email ändern
+					} else	if (entscheidung == 2) { // email ändern
 						System.out.println("Geben sie eine neue Mail ein");
 						userliste[index].setUsername(reader.liesText());
 					}
@@ -142,7 +141,7 @@ public class UserVerwalten {
 							}
 							if (!nameGleich) {
 
-								userliste[index].setUsername(reader.liesText());
+								userliste[index].setUsername(neuerUsername);
 								System.out.println(neuerUsername + " wurde als neuer Benutzername gespeichert");
 							} else {
 								System.out.println("Der Name ist bereits vorhanden");
@@ -152,13 +151,13 @@ public class UserVerwalten {
 				}
 				break;
 
-			/**
+			/*
 			 * In diesem Case kann man alle Benutzernamen oder nur einen bestimmten löschen
 			 */
 			case 3:
 				System.out.println("Sollen alle Usernamen gelöscht werden (1) oder ein bestimmter (2) ?");
 				int loeschen = reader.liesZahl();
-				/**
+				/*
 				 * hier wird entweder ein neues Array angelegt, welches leer ist oder der
 				 * bestimme User gesucht und dann gelöscht
 				 */
@@ -178,7 +177,7 @@ public class UserVerwalten {
 							}
 						}
 					}
-					/**
+					/*
 					 * prüft ob der User vorhanden ist wenn der Nutzername vorhanden ist wird die
 					 * Stelle des Arrays auf null gesetzt
 					 */
@@ -189,7 +188,7 @@ public class UserVerwalten {
 					}
 				}
 				break;
-			/**
+			/*
 			 * Hier werden alle User ausgegeben. Dafür werden alle Stellen im Arary
 			 * ausgegeben die nicht null sind
 			 */
@@ -204,7 +203,7 @@ public class UserVerwalten {
 			case 5:
 				beenden = true;
 				break;
-			/**
+			/*
 			 * Fehlermeldung für ungültige Eingaben
 			 */
 			default:
