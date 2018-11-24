@@ -18,7 +18,7 @@ public class UserVerwalten {
 
 	public static void main(String[] args) {
 		SimpleReader reader = new SimpleReader();
-		User[] userliste = new User[10];
+		User[] userliste = new User[1000];
 		boolean beenden = false;
 
 		int o = 0;
@@ -155,7 +155,7 @@ public class UserVerwalten {
 			 * In diesem Case kann man alle Benutzernamen oder nur einen bestimmten löschen
 			 */
 			case 3:
-				System.out.println("Sollen alle Usernamen gelöscht werden (1) oder ein bestimmter (2) ?");
+				System.out.println("Sollen alle User gelöscht werden (1) oder ein bestimmter (2) ?");
 				int loeschen = reader.liesZahl();
 				/*
 				 * hier wird entweder ein neues Array angelegt, welches leer ist oder der
@@ -183,6 +183,7 @@ public class UserVerwalten {
 					 */
 					if (vorhanden) { // user löschen
 						userliste[index] = null;
+						System.out.println("User erfolgreich gelöscht.");
 					} else {
 						System.out.println("Der gesuchte Username ist nicht vorhanden.");
 					}
@@ -210,6 +211,7 @@ public class UserVerwalten {
 				System.out.println("Sie haben keine gültige Eingabe getätigt");
 				break;
 			}
+			System.out.println();
 		}
 	}
 }
