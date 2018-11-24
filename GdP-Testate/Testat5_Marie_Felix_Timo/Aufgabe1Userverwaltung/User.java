@@ -1,10 +1,5 @@
 package Aufgabe1Userverwaltung;
 
-/**
- * In der Klasse UserVerwaltung verwendete Klasse zum speichern von Usern.
- * 
- * @author Felix Franz, Timo Reitmann, Marie Salomon
- */
 public class User {
 	/**
 	 * private man kann nur in der Klasse zugreifen nicht von auﬂen, deswegen getter
@@ -53,11 +48,10 @@ public class User {
 	public String getUsername() {
 		return username;
 	}
-
-	/**
-	 * Zeigt Passwort, Mail und Username an Passwort wird durch Sternchen ersetzt
-	 * und
-	 */
+/**
+ * Zeigt Passwort, Mail und Username an
+ * Passwort wird durch Sternchen ersetzt und 
+ */
 	public void print() {
 		String sternchenpw = "";
 		/**
