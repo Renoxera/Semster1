@@ -3,16 +3,16 @@ package Aufgabe1Userverwaltung;
 import de.hsw.gdp.helper.SimpleReader;
 
 /**
+ * Hier kann man den User Verwalten, in dem man einen user anlegen, bearbeiten
+ * und löschen kann, sowie alle User ausgeben kann. Hierzu wurden verschiedene
+ * Cases angelegt und diese mit der Klasse User verknüpft. Es wurde ein Array
+ * userliste angelegt, welches indirekt die Funktion einer ArrayList übernimmt.
+ * In diesem Array können User mit Namen, E-Mail Adresse und Passwort angelegt
+ * werden. Die Passwörter werden bei der Ausgabe durch Sternchen ersetzt.
  * 
  * @author Felix Franz, Timo Reitmann, Marie Salomon
  * 
- *         Hier kann man den User Verwalten, in dem man einen user anlegen,
- *         bearbeiten und löschen kann, sowie alle User ausgeben kann. Hierzu
- *         wurden verschiedene Cases angelegt und diese mit der Klasse User
- *         verknüpft. Es wurde ein Array userliste angelegt, welches indirekt
- *         die Funktion einer ArrayList übernimmt. In diesem Array können User
- *         mit Namen, E-Mail Adresse und Passwort angelegt werden. Die
- *         Passwörter werden bei der Ausgabe durch Sternchen ersetzt.
+ * 
  */
 public class UserVerwalten {
 
@@ -92,7 +92,8 @@ public class UserVerwalten {
 
 					}
 				}
-				if (!vorhanden) System.out.println("Der Benutzername ist leider nicht vorhanden.");
+				if (!vorhanden)
+					System.out.println("Der Benutzername ist leider nicht vorhanden.");
 
 				/*
 				 * Wenn der User vorhanden ist wird hier abgefragt was verändert werden soll und
@@ -106,7 +107,7 @@ public class UserVerwalten {
 					if (entscheidung == 1) { // Passwort ändern
 						System.out.println("Geben sie ein neues Passwort ein");
 						userliste[index].setPasswort(reader.liesText());
-					} else	if (entscheidung == 2) { // email ändern
+					} else if (entscheidung == 2) { // email ändern
 						System.out.println("Geben sie eine neue Mail ein");
 						userliste[index].setUsername(reader.liesText());
 					}

@@ -4,11 +4,20 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import de.hsw.gdp.helper.SimpleReader;
 
+/**
+ * Programm zum Speichern von Aufgaben mit dazugehörigem Fälligkeitsdautum in
+ * einer Arraylist. Diese Klasse dient nur zum Speichern und hat keine
+ * Möglichkeit zur Usereingabe. Zur Anwendung wird die Klasse AufgabenVerwaltung
+ * empfohlen.
+ *
+ * @author Marie Salomon, Felix Franz, Timo Reitmann
+ * 
+ */
 public class AufgabenSpeicher {
-	protected ArrayList<Aufgabe>	alleAufgaben, erledigteAufgaben, unerledigteAufgaben;
-	
-	protected static int[]			spaltenbreite	= { 30, 8, 7 };
-	
+	protected ArrayList<Aufgabe> alleAufgaben, erledigteAufgaben, unerledigteAufgaben;
+
+	protected static int[] spaltenbreite = { 30, 8, 7 };
+
 	/**
 	 * legt die in der AufgabenVerwaltung gespeicherten Listen an.
 	 */
@@ -17,7 +26,7 @@ public class AufgabenSpeicher {
 		erledigteAufgaben = new ArrayList<Aufgabe>();
 		unerledigteAufgaben = new ArrayList<Aufgabe>();
 	}
-	
+
 	/**
 	 * Methode, die dazu dient eine neue Aufgabe den Listen anzuhängen.
 	 * 
@@ -29,7 +38,7 @@ public class AufgabenSpeicher {
 	public boolean fuegeAufgabeHinzu(String aufgabe, String erledigt, String datum) {
 		return fuegeAufgabeDerListeHinzu(pruefeEingabeUndErzeugeAufgabe(aufgabe, erledigt, datum));
 	}
-	
+
 	/**
 	 * Interne Methode, die die eingegebenen Strings Überprüft und eine neue Aufgabe
 	 * mit den übergebenen Werten erzeugt.
@@ -47,11 +56,14 @@ public class AufgabenSpeicher {
 			erle = true;
 		} else if (pruefeEr == 1) {
 			erle = false;
-		} else return null;
-		if (faelligkeitsdatum != null) return new Aufgabe(aufgabe, erle, faelligkeitsdatum);
-		else return null;
+		} else
+			return null;
+		if (faelligkeitsdatum != null)
+			return new Aufgabe(aufgabe, erle, faelligkeitsdatum);
+		else
+			return null;
 	}
-	
+
 	/**
 	 * Interne Methode, die einen eingegebenen String überprüft, ob sie in ein
 	 * boolean umsetzbar ist.
@@ -70,7 +82,7 @@ public class AufgabenSpeicher {
 			return 2;
 		}
 	}
-	
+
 	/**
 	 * Interne Methode, die eine Aufgabe an die Liste aller Aufgaben und an die
 	 * passende Liste erleidgt oder unerledigt an.
@@ -80,7 +92,8 @@ public class AufgabenSpeicher {
 	 * @return true, wenn erfolgreich. false, falls nicht.
 	 */
 	private boolean fuegeAufgabeDerListeHinzu(Aufgabe aufgabe) {
-		if (aufgabe == null) return false;
+		if (aufgabe == null)
+			return false;
 		anpassungLaengeTabelle(aufgabe);
 		alleAufgaben.add(aufgabe);
 		if (aufgabe.erledigt) {
@@ -90,7 +103,7 @@ public class AufgabenSpeicher {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * Ausgabe einer Liste nach angegeben Sortierkriterium.
 	 * 
@@ -104,28 +117,28 @@ public class AufgabenSpeicher {
 		if (wonach == 0 || wonach == 1 && welcheListe >= 0 && welcheListe <= 2) {
 			welcheListe += wonach * 3;
 			switch (welcheListe) {
-				case 0:
-					ausgabeAufgabenNachId(this.alleAufgaben);
-					break;
-				case 1:
-					ausgabeAufgabenNachId(this.erledigteAufgaben);
-					break;
-				case 2:
-					ausgabeAufgabenNachId(this.unerledigteAufgaben);
-					break;
-				case 3:
-					ausgabeAufgabenNachDatum(this.alleAufgaben);
-					break;
-				case 4:
-					ausgabeAufgabenNachDatum(this.erledigteAufgaben);
-					break;
-				case 5:
-					ausgabeAufgabenNachDatum(this.unerledigteAufgaben);
-					break;
+			case 0:
+				ausgabeAufgabenNachId(this.alleAufgaben);
+				break;
+			case 1:
+				ausgabeAufgabenNachId(this.erledigteAufgaben);
+				break;
+			case 2:
+				ausgabeAufgabenNachId(this.unerledigteAufgaben);
+				break;
+			case 3:
+				ausgabeAufgabenNachDatum(this.alleAufgaben);
+				break;
+			case 4:
+				ausgabeAufgabenNachDatum(this.erledigteAufgaben);
+				break;
+			case 5:
+				ausgabeAufgabenNachDatum(this.unerledigteAufgaben);
+				break;
 			}
 		}
 	}
-	
+
 	/**
 	 * Löscht einen Eintrag anhand eines Index.
 	 * 
@@ -136,15 +149,17 @@ public class AufgabenSpeicher {
 	 */
 	public boolean loescheNachNummer(int nummer) {
 		if (nummer >= 0 && nummer < alleAufgaben.size()) {
-			if (alleAufgaben.get(nummer).erledigt) erledigteAufgaben.remove(alleAufgaben.get(nummer));
-			else unerledigteAufgaben.remove(alleAufgaben.get(nummer));
+			if (alleAufgaben.get(nummer).erledigt)
+				erledigteAufgaben.remove(alleAufgaben.get(nummer));
+			else
+				unerledigteAufgaben.remove(alleAufgaben.get(nummer));
 			alleAufgaben.remove(nummer);
 			return true;
 		}
 		System.err.println("Eingabe außerhalb der Indizes. " + nummer);
 		return false;
 	}
-	
+
 	/**
 	 * @param aufgabe
 	 * @return
@@ -160,10 +175,11 @@ public class AufgabenSpeicher {
 			loescheNachNummer(alleAufgaben.indexOf(auswahl.get(nr)));
 		} else if (auswahl.size() == 1) {
 			loescheNachNummer(alleAufgaben.indexOf(auswahl.get(0)));
-		} else System.out.println("Keine Aufgabe mit dem Teilstring.");
+		} else
+			System.out.println("Keine Aufgabe mit dem Teilstring.");
 		return false;
 	}
-	
+
 	/**
 	 * Methode zur Ändern eines Status einer Aufgabe.
 	 * 
@@ -175,9 +191,10 @@ public class AufgabenSpeicher {
 			aendereStatusIntern(unerledigteAufgaben);
 		} else if (eingabe == 2) {
 			aendereStatusIntern(erledigteAufgaben);
-		} else System.err.println("Falsche Eingabe. " + eingabe);
+		} else
+			System.err.println("Falsche Eingabe. " + eingabe);
 	}
-	
+
 	private void aendereStatusIntern(ArrayList<Aufgabe> liste) {
 		int nr = 0;
 		if (liste.size() == 0) {
@@ -187,8 +204,9 @@ public class AufgabenSpeicher {
 			ausgabeDerListeMitAngepasstenIndizes(liste);
 			System.out.print("Welche Aufgabe genau (Nr): ");
 			nr = new SimpleReader().liesZahl(0, liste.size() - 1);
-			
-		} else nr = 0;
+
+		} else
+			nr = 0;
 		liste.get(nr).erledigt = !liste.get(nr).erledigt;
 		if (liste == unerledigteAufgaben) {
 			erledigteAufgaben.add(liste.get(nr));
@@ -196,47 +214,53 @@ public class AufgabenSpeicher {
 		} else {
 			unerledigteAufgaben.add(liste.get(nr));
 			erledigteAufgaben.remove(liste.get(nr));
-			
+
 		}
 	}
-	
+
 	/**
 	 * Druckt den Tabellenkopf in der Konsole aus.
 	 */
 	private void printHeader() {
 		int i;
-		for (i = 2; alleAufgaben.size() / Math.pow(10, i) > 1; i++);
+		for (i = 2; alleAufgaben.size() / Math.pow(10, i) > 1; i++)
+			;
 		System.out.printf("| %" + i + "s | %-" + spaltenbreite[0] + "s | %-" + spaltenbreite[1] + "s | %-"
 				+ spaltenbreite[2] + "s |%n", "Nr", "Datum", "Erledigt", "Aufgabe");
 	}
-	
+
 	/**
 	 * gibt die übergebene Liste mit den Indizes dieser Liste an
+	 * 
 	 * @param liste Liste, die ausgegeben werden soll.
 	 */
 	private void ausgabeDerListeMitAngepasstenIndizes(ArrayList<Aufgabe> liste) {
 		printHeader();
 		liste.stream().forEach(a -> a.printLine(liste));
 	}
-	
+
 	/**
-	 * gibt die übergene Liste mit den Indizes aller Aufgaben aus. Die Ausgabe ist nach der Reihnfolge aller Aufgaben sortiert.
+	 * gibt die übergene Liste mit den Indizes aller Aufgaben aus. Die Ausgabe ist
+	 * nach der Reihnfolge aller Aufgaben sortiert.
+	 * 
 	 * @param liste Liste, die ausgegeben werden soll.
 	 */
 	private void ausgabeAufgabenNachId(ArrayList<Aufgabe> liste) {
 		printHeader();
 		liste.stream().forEach(a -> a.printLine());
 	}
-	
+
 	/**
-	 * gibt die übergene Liste mit den Indizes aller Aufgaben aus. Die Ausgabe ist nach der Reihnfolge ihres Fälligkeitsdatum sortiert.
+	 * gibt die übergene Liste mit den Indizes aller Aufgaben aus. Die Ausgabe ist
+	 * nach der Reihnfolge ihres Fälligkeitsdatum sortiert.
+	 * 
 	 * @param liste Liste, die ausgegeben werden soll.
 	 */
 	private void ausgabeAufgabenNachDatum(ArrayList<Aufgabe> liste) {
 		printHeader();
 		liste.stream().sorted().forEach(a -> a.printLine());
 	}
-	
+
 	/**
 	 * Wandelt ein in der Form (tt.mm.jjjj,ss:mm) eingegebenes Datum in ein Datum
 	 * Objekt der Klasse GregorianCalendar aus.
@@ -249,10 +273,10 @@ public class AufgabenSpeicher {
 		if (datum.matches("[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{1,4}[,][0-9]{1,2}[:][0-9]{1,2}")) {
 			String date = datum.split(",")[0];
 			String time = datum.split(",")[1];
-			
+
 			String[] dateA = date.split("[.]");
 			String[] timeA = time.split("[:]");
-			
+
 			int tag = Integer.parseInt(dateA[0]);
 			int monat = Integer.parseInt(dateA[1]);
 			int jahr = Integer.parseInt(dateA[2]);
@@ -265,7 +289,7 @@ public class AufgabenSpeicher {
 		System.err.println("Fehler in der Eingabe des Datums " + datum);
 		return null;
 	}
-	
+
 	/**
 	 * Interne Methode, die Überprüft, ob die übergebenen parameter ein valider Tag
 	 * im Jahr sind.
@@ -282,9 +306,9 @@ public class AufgabenSpeicher {
 						|| ((monat != 2 && monat % 2 == 0) && (tag <= 30))))
 						|| ((monat > 7 && monat <= 12)
 								&& (((monat % 2 == 0) && (tag <= 31)) || ((monat % 2 == 1) && (tag <= 30)))));
-		
+
 	}
-	
+
 	/**
 	 * Prüft ob die Spaltenbreite für die in <code>spaltenbreite</code>
 	 * gespeicherten Breiten erhöht werden müssen, da ein breiterer String in den
@@ -300,7 +324,7 @@ public class AufgabenSpeicher {
 			}
 		}
 	}
-	
+
 	/**
 	 * Interne Klasse, in der die benötigten Daten für eine Aufgabe gespeichert
 	 * werden. Integration des Interface Comparable, damit Aufgaben nach ihrem
@@ -309,17 +333,17 @@ public class AufgabenSpeicher {
 	 * @author Marie Salomon, Felix Franz, Timo Reitmann
 	 */
 	class Aufgabe implements Comparable<Aufgabe> {
-		private boolean				erledigt	= false;
-		private String				aufgabe;
-		private GregorianCalendar	faelligkeitsdatum;
-		private int					id;
-		
+		private boolean erledigt = false;
+		private String aufgabe;
+		private GregorianCalendar faelligkeitsdatum;
+		private int id;
+
 		public Aufgabe(String aufgabe, boolean erledigt, GregorianCalendar faelligkeitsdatum) {
 			this.aufgabe = aufgabe;
 			this.erledigt = erledigt;
 			this.faelligkeitsdatum = faelligkeitsdatum;
 		}
-		
+
 		/**
 		 * Druckt den Kontakt in einer Zeile aus. Ausgabe ist an Tabellenkopf angepasst
 		 * und ein vorheriges Aufrufen ist sinnvoll.
@@ -327,22 +351,25 @@ public class AufgabenSpeicher {
 		public void printLine() {
 			printLine(alleAufgaben);
 		}
+
 		/**
-		 * Gibt diese Aufgabe mit den Indizes 
+		 * Gibt diese Aufgabe mit den Indizes
+		 * 
 		 * @param liste
 		 */
 		public void printLine(ArrayList<Aufgabe> liste) {
 			int i;
 			id = liste.indexOf(this);
-			for (i = 2; alleAufgaben.size() / Math.pow(10, i) > 1; i++);
+			for (i = 2; alleAufgaben.size() / Math.pow(10, i) > 1; i++)
+				;
 			System.out.printf("| %0" + i + "d | %-" + spaltenbreite[0] + "s | %-" + spaltenbreite[1] + "s | %-"
 					+ spaltenbreite[2] + "s |%n", id, faelligkeitsdatum.getTime(), erledigt, aufgabe);
 		}
-		
+
 		@Override
 		public int compareTo(Aufgabe o) {
 			return this.faelligkeitsdatum.compareTo(o.faelligkeitsdatum);
 		}
 	}
-	
+
 }
