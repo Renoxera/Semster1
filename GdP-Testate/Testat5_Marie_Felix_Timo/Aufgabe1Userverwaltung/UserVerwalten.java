@@ -29,7 +29,7 @@ public class UserVerwalten {
 			int auswahl = reader.liesZahl();
 
 			switch (auswahl) {
-			/**
+			/*
 			 * Hier wird ein neuer User angelegt und überprüft ob der Username bereits
 			 * vorhanden ist. Ist dieses der Fall so wird der User nicht angelegt und nach
 			 * einem neuen Username gefragt.
@@ -40,7 +40,7 @@ public class UserVerwalten {
 				while (!gefunden) { // läuft solange wie kein neuer user angelegt wurde.
 					System.out.println("Was ist der Name des Users?");
 					String username = reader.liesText();
-					/**
+					/*
 					 * es wird überprüft ob es den Username bereits gibt
 					 */
 					boolean nameGleich = false;
@@ -51,7 +51,7 @@ public class UserVerwalten {
 							}
 						}
 					}
-					/**
+					/*
 					 * Wenn der Username noch nicht vorhanden ist, wird hier ein neuer User
 					 * angelegt.
 					 */
@@ -70,7 +70,7 @@ public class UserVerwalten {
 					}
 				}
 				break;
-			/**
+			/*
 			 * Im case 2 gibt es die Möglichkeit einen speziellen User zu bearbeiten.
 			 * Hierfür wird der User gesucht und wenn dieser vorhanden ist wird gefragt ob
 			 * das Passwort oder die Mail Adresse bearbeitet werden soll.
@@ -78,7 +78,7 @@ public class UserVerwalten {
 			case 2:
 				System.out.println("Bitte geben Sie den Usernamen ein den sie bearbeiten möchten");
 				String username = reader.liesText();
-				/**
+				/*
 				 * sucht ob es den User überhaupt gibt
 				 */
 				boolean vorhanden = false;
@@ -94,7 +94,7 @@ public class UserVerwalten {
 				}
 				System.out.println("Der Benutzername ist leider nicht vorhanden.");
 
-				/**
+				/*
 				 * Wenn der User vorhanden ist wird hier abgefragt was verändert werden soll und
 				 * dann kann man ein Neues
 				 */
@@ -110,9 +110,9 @@ public class UserVerwalten {
 					if (entscheidung == 2) { // email ändern
 						System.out.println("Geben sie eine neue Mail ein");
 						userliste[index].setUsername(reader.liesText());
-					} 
-					
-					/**
+					}
+
+					/*
 					 * Hier kann der Benutzername verändert werden. Es wird überprüft ob der neue
 					 * Benutzername bereits exisitiert
 					 *
@@ -122,10 +122,10 @@ public class UserVerwalten {
 					 * Funktioniert nicht richtig!!!!!!!!!!!!
 					 */
 					else {
-						
+
 						boolean schonda = false;
 
-						while (!schonda) { 
+						while (!schonda) {
 							System.out.println("Geben sie einen neuen Benutzername ein:");
 							// läuft solange wie kein neuer user angelegt wurde.
 							String neuerUsername = reader.liesText();
@@ -141,14 +141,14 @@ public class UserVerwalten {
 								}
 							}
 							if (!nameGleich) {
-								
-						userliste[index].setUsername(reader.liesText());
-						System.out.println(neuerUsername +" wurde als neuer Benutzername gespeichert");}
-							else {
+
+								userliste[index].setUsername(reader.liesText());
+								System.out.println(neuerUsername + " wurde als neuer Benutzername gespeichert");
+							} else {
 								System.out.println("Der Name ist bereits vorhanden");
 							}
+						}
 					}
-				}
 				}
 				break;
 
@@ -177,10 +177,10 @@ public class UserVerwalten {
 								index = i;
 							}
 						}
-					} 
+					}
 					/**
-					 * prüft ob der User vorhanden ist
-					 * wenn der Nutzername vorhanden ist wird die Stelle des Arrays auf null gesetzt
+					 * prüft ob der User vorhanden ist wenn der Nutzername vorhanden ist wird die
+					 * Stelle des Arrays auf null gesetzt
 					 */
 					if (vorhanden) { // user löschen
 						userliste[index] = null;
@@ -190,8 +190,8 @@ public class UserVerwalten {
 				}
 				break;
 			/**
-			 * Hier werden alle User ausgegeben. Dafür werden alle Stellen im Arary ausgegeben die
-			 * nicht null sind
+			 * Hier werden alle User ausgegeben. Dafür werden alle Stellen im Arary
+			 * ausgegeben die nicht null sind
 			 */
 			case 4:
 				for (int i = 0; i < userliste.length; i++) {
