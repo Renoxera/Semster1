@@ -1,5 +1,5 @@
 package Aufgabe1Userverwaltung;
-
+//1
 import de.hsw.gdp.helper.SimpleReader;
 
 /**
@@ -7,12 +7,12 @@ import de.hsw.gdp.helper.SimpleReader;
  * @author Felix Franz, Timo Reitmann, Marie Salomon
  * 
  *         Hier kann man den User Verwalten, in dem man einen user anlegen,
- *         bearbeiten und löschen kann, sowie alle User ausgeben kann. Hierzu
+ *         bearbeiten und lÃ¶schen kann, sowie alle User ausgeben kann. Hierzu
  *         wurden verschiedene Cases angelegt und diese mit der Klasse User
- *         verknüpft. Es wurde ein Array userliste angelegt, welches indirekt
- *         die Funktion einer ArrayList übernimmt. In diesem Array können User
+ *         verknÃ¼pft. Es wurde ein Array userliste angelegt, welches indirekt
+ *         die Funktion einer ArrayList Ã¼bernimmt. In diesem Array kÃ¶nnen User
  *         mit Namen, E-Mail Adresse und Passwort angelegt werden. Die
- *         Passwörter werden bei der Ausgabe durch Sternchen ersetzt.
+ *         PasswÃ¶rter werden bei der Ausgabe durch Sternchen ersetzt.
  */
 public class UserVerwalten {
 
@@ -25,23 +25,23 @@ public class UserVerwalten {
 		while (!beenden) {
 			System.out.println("Was wollen Sie machen? ");
 			System.out.println(
-					"User anlegen (1), bearbeiten (2), löschen (3), alle User ausgeben (4) oder Anwendung beenden (5)? ");
+					"User anlegen (1), bearbeiten (2), lÃ¶schen (3), alle User ausgeben (4) oder Anwendung beenden (5)? ");
 			int auswahl = reader.liesZahl();
 
 			switch (auswahl) {
 			/*
-			 * Hier wird ein neuer User angelegt und überprüft ob der Username bereits
+			 * Hier wird ein neuer User angelegt und Ã¼berprÃ¼ft ob der Username bereits
 			 * vorhanden ist. Ist dieses der Fall so wird der User nicht angelegt und nach
 			 * einem neuen Username gefragt.
 			 */
 			case 1:
 				boolean gefunden = false;
 
-				while (!gefunden) { // läuft solange wie kein neuer user angelegt wurde.
+				while (!gefunden) { // lÃ¤uft solange wie kein neuer user angelegt wurde.
 					System.out.println("Was ist der Name des Users?");
 					String username = reader.liesText();
 					/*
-					 * es wird überprüft ob es den Username bereits gibt
+					 * es wird Ã¼berprÃ¼ft ob es den Username bereits gibt
 					 */
 					boolean nameGleich = false;
 					for (int j = 0; j < userliste.length; j++) {
@@ -71,15 +71,15 @@ public class UserVerwalten {
 				}
 				break;
 			/*
-			 * Im case 2 gibt es die Möglichkeit einen speziellen User zu bearbeiten.
-			 * Hierfür wird der User gesucht und wenn dieser vorhanden ist wird gefragt ob
+			 * Im case 2 gibt es die MÃ¶glichkeit einen speziellen User zu bearbeiten.
+			 * HierfÃ¼r wird der User gesucht und wenn dieser vorhanden ist wird gefragt ob
 			 * das Passwort oder die Mail Adresse bearbeitet werden soll.
 			 */
 			case 2:
-				System.out.println("Bitte geben Sie den Usernamen ein den sie bearbeiten möchten");
+				System.out.println("Bitte geben Sie den Usernamen ein den sie bearbeiten mÃ¶chten");
 				String username = reader.liesText();
 				/*
-				 * sucht ob es den User überhaupt gibt
+				 * sucht ob es den User Ã¼berhaupt gibt
 				 */
 				boolean vorhanden = false;
 				int index = 0;
@@ -95,24 +95,24 @@ public class UserVerwalten {
 				if (!vorhanden) System.out.println("Der Benutzername ist leider nicht vorhanden.");
 
 				/*
-				 * Wenn der User vorhanden ist wird hier abgefragt was verändert werden soll und
+				 * Wenn der User vorhanden ist wird hier abgefragt was verÃ¤ndert werden soll und
 				 * dann kann man ein Neues
 				 */
 
 				if (vorhanden) { // user bearbeiten
-					System.out.println("Was wollen Sie verändern?");
+					System.out.println("Was wollen Sie verÃ¤ndern?");
 					System.out.println("Passwort (1),  Mail (2) oder Username (3) ?");
 					int entscheidung = reader.liesZahl(1, 3);
-					if (entscheidung == 1) { // Passwort ändern
+					if (entscheidung == 1) { // Passwort Ã¤ndern
 						System.out.println("Geben sie ein neues Passwort ein");
 						userliste[index].setPasswort(reader.liesText());
-					} else	if (entscheidung == 2) { // email ändern
+					} else	if (entscheidung == 2) { // email Ã¤ndern
 						System.out.println("Geben sie eine neue Mail ein");
 						userliste[index].setUsername(reader.liesText());
 					}
 
 					/*
-					 * Hier kann der Benutzername verändert werden. Es wird überprüft ob der neue
+					 * Hier kann der Benutzername verÃ¤ndert werden. Es wird Ã¼berprÃ¼ft ob der neue
 					 * Benutzername bereits exisitiert
 					 *
 					 * 
@@ -126,10 +126,10 @@ public class UserVerwalten {
 
 						while (!schonda) {
 							System.out.println("Geben sie einen neuen Benutzername ein:");
-							// läuft solange wie kein neuer user angelegt wurde.
+							// lÃ¤uft solange wie kein neuer user angelegt wurde.
 							String neuerUsername = reader.liesText();
 							/**
-							 * es wird überprüft ob es den Username bereits gibt
+							 * es wird Ã¼berprÃ¼ft ob es den Username bereits gibt
 							 */
 							boolean nameGleich = false;
 							for (int j = 0; j < userliste.length; j++) {
@@ -153,16 +153,16 @@ public class UserVerwalten {
 				break;
 
 			/*
-			 * In diesem Case kann man alle Benutzernamen oder nur einen bestimmten löschen
+			 * In diesem Case kann man alle Benutzernamen oder nur einen bestimmten lÃ¶schen
 			 */
 			case 3:
-				System.out.println("Sollen alle User gelöscht werden (1) oder ein bestimmter (2) ?");
+				System.out.println("Sollen alle User gelÃ¶scht werden (1) oder ein bestimmter (2) ?");
 				int loeschen = reader.liesZahl();
 				/*
 				 * hier wird entweder ein neues Array angelegt, welches leer ist oder der
-				 * bestimme User gesucht und dann gelöscht
+				 * bestimme User gesucht und dann gelÃ¶scht
 				 */
-				if (loeschen == 1) { // alle User löschen
+				if (loeschen == 1) { // alle User lÃ¶schen
 					userliste = new User[1000];
 				} else {
 					System.out.println("Geben Sie den Usernamen ein: ");
@@ -179,19 +179,19 @@ public class UserVerwalten {
 						}
 					}
 					/*
-					 * prüft ob der User vorhanden ist wenn der Nutzername vorhanden ist wird die
+					 * prÃ¼ft ob der User vorhanden ist wenn der Nutzername vorhanden ist wird die
 					 * Stelle des Arrays auf null gesetzt
 					 */
-					if (vorhanden) { // user löschen
+					if (vorhanden) { // user lÃ¶schen
 						userliste[index] = null;
-						System.out.println("User erfolgreich gelöscht.");
+						System.out.println("User erfolgreich gelÃ¶scht.");
 					} else {
 						System.out.println("Der gesuchte Username ist nicht vorhanden.");
 					}
 				}
 				break;
 			/*
-			 * Hier werden alle User ausgegeben. Dafür werden alle Stellen im Arary
+			 * Hier werden alle User ausgegeben. DafÃ¼r werden alle Stellen im Arary
 			 * ausgegeben die nicht null sind
 			 */
 			case 4:
@@ -206,10 +206,10 @@ public class UserVerwalten {
 				beenden = true;
 				break;
 			/*
-			 * Fehlermeldung für ungültige Eingaben
+			 * Fehlermeldung fÃ¼r ungÃ¼ltige Eingaben
 			 */
 			default:
-				System.out.println("Sie haben keine gültige Eingabe getätigt");
+				System.out.println("Sie haben keine gÃ¼ltige Eingabe getÃ¤tigt");
 				break;
 			}
 			System.out.println();
