@@ -143,6 +143,7 @@ public class UserVerwalten {
 
 								userliste[index].setUsername(neuerUsername);
 								System.out.println(neuerUsername + " wurde als neuer Benutzername gespeichert");
+								break;
 							} else {
 								System.out.println("Der Name ist bereits vorhanden");
 							}
