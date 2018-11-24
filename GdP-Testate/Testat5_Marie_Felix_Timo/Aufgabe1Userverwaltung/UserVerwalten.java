@@ -1,5 +1,5 @@
 package Aufgabe1Userverwaltung;
-//1
+
 import de.hsw.gdp.helper.SimpleReader;
 
 /**
