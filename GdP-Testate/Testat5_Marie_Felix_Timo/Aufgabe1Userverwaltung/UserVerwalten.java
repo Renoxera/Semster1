@@ -3,16 +3,16 @@ package Aufgabe1Userverwaltung;
 import de.hsw.gdp.helper.SimpleReader;
 
 /**
+ * Hier kann man den User Verwalten, in dem man einen user anlegen, bearbeiten
+ * und löschen kann, sowie alle User ausgeben kann. Hierzu wurden verschiedene
+ * Cases angelegt und diese mit der Klasse User verknüpft. Es wurde ein Array
+ * userliste angelegt, welches indirekt die Funktion einer ArrayList übernimmt.
+ * In diesem Array können User mit Namen, E-Mail Adresse und Passwort angelegt
+ * werden. Die Passwörter werden bei der Ausgabe durch Sternchen ersetzt.
  * 
  * @author Felix Franz, Timo Reitmann, Marie Salomon
  * 
- *         Hier kann man den User Verwalten, in dem man einen user anlegen,
- *         bearbeiten und löschen kann, sowie alle User ausgeben kann. Hierzu
- *         wurden verschiedene Cases angelegt und diese mit der Klasse User
- *         verknüpft. Es wurde ein Array userliste angelegt, welches indirekt
- *         die Funktion einer ArrayList übernimmt. In diesem Array können User
- *         mit Namen, E-Mail Adresse und Passwort angelegt werden. Die
- *         Passwörter werden bei der Ausgabe durch Sternchen ersetzt.
+ * 
  */
 public class UserVerwalten {
 
