@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import de.hsw.gdp.helper.SimpleReader;
 
-public class AufgabenVerwaltung {
+public class AufgabenSpeicher {
 	protected ArrayList<Aufgabe>	alleAufgaben, erledigteAufgaben, unerledigteAufgaben;
 	
 	protected static int[]			spaltenbreite	= { 30, 8, 7 };
@@ -12,7 +12,7 @@ public class AufgabenVerwaltung {
 	/**
 	 * legt die in der AufgabenVerwaltung gespeicherten Listen an.
 	 */
-	public AufgabenVerwaltung() {
+	public AufgabenSpeicher() {
 		alleAufgaben = new ArrayList<Aufgabe>();
 		erledigteAufgaben = new ArrayList<Aufgabe>();
 		unerledigteAufgaben = new ArrayList<Aufgabe>();

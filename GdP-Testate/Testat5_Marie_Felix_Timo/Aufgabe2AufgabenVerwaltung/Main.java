@@ -4,7 +4,7 @@ import de.hsw.gdp.helper.SimpleReader;
 
 public class Main {
 	public static void main(String[] args) {
-		AufgabenVerwaltung a = new AufgabenVerwaltung();
+		AufgabenSpeicher a = new AufgabenSpeicher();
 //		beispielBelegung(a);
 		boolean schleife = true;
 		int eingabe;
@@ -58,7 +58,7 @@ public class Main {
 		
 	}
 
-	private static void eingabeUndErzeugung(SimpleReader reader, AufgabenVerwaltung t) {
+	private static void eingabeUndErzeugung(SimpleReader reader, AufgabenSpeicher t) {
 		String aufgabe, datum, erledigt;
 		System.out.print("Aufgabe: ");
 		aufgabe = reader.liesText();
@@ -73,7 +73,7 @@ public class Main {
 		else System.out.println("\n Kontakt konnte nicht angelegt werden.");
 	}
 	
-	public static void beispielBelegung(AufgabenVerwaltung a) {
+	public static void beispielBelegung(AufgabenSpeicher a) {
 
 		a.fuegeAufgabeHinzu("", "1", "");
 		a.fuegeAufgabeHinzu("Test", "1", "");
