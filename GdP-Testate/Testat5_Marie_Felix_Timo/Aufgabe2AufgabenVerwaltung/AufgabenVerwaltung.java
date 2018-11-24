@@ -2,7 +2,7 @@ package Aufgabe2AufgabenVerwaltung;
 
 import de.hsw.gdp.helper.SimpleReader;
 
-public class Main {
+public class AufgabenVerwaltung {
 	public static void main(String[] args) {
 		AufgabenSpeicher a = new AufgabenSpeicher();
 //		beispielBelegung(a);
