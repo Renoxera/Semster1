@@ -73,12 +73,12 @@ public class AufgabenSpeicher {
 	 *         unzulässige Eingabe
 	 */
 	private int pruefeErledigt(String eingabe) {
-		if (eingabe.equals("true") || eingabe.equals("1") || eingabe.equals("ja")) {
+		if (eingabe.equals("true") || eingabe.equals("j") || eingabe.equals("ja") || eingabe.equals("1")) {
 			return 0;
-		} else if (eingabe.equals("false") || eingabe.equals("0") || eingabe.equals("nein")) {
+		} else if (eingabe.equals("false") || eingabe.equals("n") || eingabe.equals("nein") || eingabe.equals("0")) {
 			return 1;
 		} else {
-			System.err.println("Falsche Eingabe. Bitte [true|false|0|1|ja|nein] eingeben.");
+			System.err.println("Fehler in der Eingabe des Status. Bitte [true|ja|j|1|false|nein|n|0] eingeben.");
 			return 2;
 		}
 	}
@@ -161,8 +161,14 @@ public class AufgabenSpeicher {
 	}
 
 	/**
-	 * @param aufgabe
-	 * @return
+	 * Durchsucht die Liste aller aufgaben nach einem Teilstring. Sollte es nur
+	 * einen passenden Eintrag geben, so wird dieser gelöscht. Gibt es mehrere auf
+	 * die Suche passende Einträge, so wird der User nach einer der Nummern gefragt.
+	 * 
+	 * @param aufgabe (Teil-)String einer Aufgabenbeschreibung / Name zu löschenden
+	 *                Aufgabe
+	 * @return true, wenn eine Aufgabe erfolgreich gelöscht werden konnte. false,
+	 *         wenn nicht.
 	 */
 	public boolean loescheNachAufgabe(String aufgabe) {
 		ArrayList<Aufgabe> auswahl = new ArrayList<Aufgabe>();
@@ -170,8 +176,12 @@ public class AufgabenSpeicher {
 				.forEach(k -> auswahl.add(k));
 		if (auswahl.size() > 1) {
 			ausgabeDerListeMitAngepasstenIndizes(auswahl);
-			System.out.print("Welche Aufgabe genau (Nr): ");
-			int nr = new SimpleReader().liesZahl(0, auswahl.size() - 1);
+			System.out.print("Welche Aufgabe genau (Nr) zum abbrechen -1: ");
+			int nr = new SimpleReader().liesZahl(-1, auswahl.size() - 1);
+			if (nr == -1) {
+				System.out.println("Abbruch.");
+				return false;
+			}
 			loescheNachNummer(alleAufgaben.indexOf(auswahl.get(nr)));
 		} else if (auswahl.size() == 1) {
 			loescheNachNummer(alleAufgaben.indexOf(auswahl.get(0)));
@@ -195,6 +205,12 @@ public class AufgabenSpeicher {
 			System.err.println("Falsche Eingabe. " + eingabe);
 	}
 
+	/**
+	 * Ändert den Status eines Eintrags aus der übergebenen Liste. Interagiert dabei
+	 * ggf. mit dem Nutzer.
+	 * 
+	 * @param liste
+	 */
 	private void aendereStatusIntern(ArrayList<Aufgabe> liste) {
 		int nr = 0;
 		if (liste.size() == 0) {
@@ -204,17 +220,18 @@ public class AufgabenSpeicher {
 			ausgabeDerListeMitAngepasstenIndizes(liste);
 			System.out.print("Welche Aufgabe genau (Nr): ");
 			nr = new SimpleReader().liesZahl(0, liste.size() - 1);
-
-		} else
+			System.out.println("Eintrag erfolgreich verändert.");
+		} else {
 			nr = 0;
+			System.out.println("Nur ein Eintrag vorhanden, dieser wird verändert.");
+		}
 		liste.get(nr).erledigt = !liste.get(nr).erledigt;
-		if (liste == unerledigteAufgaben) {
+		if (liste.get(nr).erledigt) {
 			erledigteAufgaben.add(liste.get(nr));
 			unerledigteAufgaben.remove(liste.get(nr));
 		} else {
 			unerledigteAufgaben.add(liste.get(nr));
 			erledigteAufgaben.remove(liste.get(nr));
-
 		}
 	}
 

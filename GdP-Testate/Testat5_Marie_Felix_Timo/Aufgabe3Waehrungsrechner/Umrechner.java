@@ -3,12 +3,12 @@ package Aufgabe3Waehrungsrechner;
 import de.hsw.gdp.helper.SimpleReader;
 
 /**
+ * Programm zum Umrechnen unterschiedlicher Währungen. 
  * 
  * @author Marie Salomon, Timo Reitmann, Felix Franz
  *
  */
 public class Umrechner {
-
 	public static SimpleReader r = new SimpleReader();
 	static boolean run = true;
 
@@ -25,21 +25,18 @@ public class Umrechner {
 		fillArray();
 		do {
 			System.out.println("Von 1 = Euro | 2 = US-Dollar | 3 = Pfund Sterling | 4 = Yen || 0 = Beenden");
-			int first = r.liesZahl();
-			if (first > 4) {
-				System.err.println("!!UngÃ¼ltige Eingabe, versuchs nochmal!!\n");
-				continue;
-			} else if (first == 0) {
-				run = false;
+			int first = r.liesZahl(0, 4);
+			if (first == 0) {
 				System.out.println("Das Programm wurde beendet!");
-				break;
+				run = false;
+			} else {
+				System.out.println("nach 1 = Euro | 2 = US-Dollar | 3 = Pfund Sterling | 4 = Yen");
+				int second = r.liesZahl(1, 4);
+				if (first == second)
+					System.out.println("Gleiche Währungen, Umrechnung nicht erforderlich!\n");
+				else
+					calculate(first, second);
 			}
-			System.out.println("nach 1 = Euro | 2 = US-Dollar | 3 = Pfund Sterling | 4 = Yen");
-			int second = r.liesZahl();
-			if (first == second)
-				System.out.println("Gleiche Währungen, Umrechnung nicht erforderlich!\n");
-			else
-				calculate(first, second);
 		} while (run);
 	}
 
@@ -51,8 +48,8 @@ public class Umrechner {
 	 * @param currency2 ist der Index der Währung, in die umgerechnet werden soll
 	 */
 	private static void calculate(int currency1, int currency2) {
-		System.out.println("Geben sie einen gewÃ¼nschten Betrag in " + giveCurrencySymbol(currency1) + " ein:");
-		double number1 = r.liesDezimalzahl(Double.MAX_VALUE, Double.MIN_VALUE);
+		System.out.println("Geben sie einen gewünschten Betrag in " + giveCurrencySymbol(currency1) + " ein:");
+		double number1 = r.liesDezimalzahl(Double.MIN_VALUE, Double.MAX_VALUE);
 		double number2 = number1 * currencyRate[currency1 - 1][currency2 - 1];
 		String number2AsString = String.format("%.2f", number2);
 
@@ -62,8 +59,8 @@ public class Umrechner {
 	}
 
 	/**
-	 * Die giveCurrencySymbol gibt das Währungssymbol abhäning von dem
-	 * eingebebenen Index aus
+	 * Die giveCurrencySymbol gibt das Währungssymbol abhängig von dem eingebebenen
+	 * Index aus
 	 * 
 	 * @param currency ist der Index der Währung, dessen Symbol ausgegeben werden
 	 *                 soll
