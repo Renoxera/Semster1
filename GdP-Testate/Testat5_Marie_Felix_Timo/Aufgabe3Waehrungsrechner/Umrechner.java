@@ -27,8 +27,7 @@ public class Umrechner {
 			System.out.println("Von 1 = Euro | 2 = US-Dollar | 3 = Pfund Sterling | 4 = Yen || 0 = Beenden");
 			int first = r.liesZahl();
 			if (first > 4) {
-				System.err.println("!!Ungültige Eingabe, versuchs nochmal!!");
-				System.out.println("");
+				System.err.println("!!UngÃ¼ltige Eingabe, versuchs nochmal!!\n");
 				continue;
 			} else if (first == 0) {
 				run = false;
@@ -38,24 +37,22 @@ public class Umrechner {
 			System.out.println("nach 1 = Euro | 2 = US-Dollar | 3 = Pfund Sterling | 4 = Yen");
 			int second = r.liesZahl();
 			if (first == second)
-				System.out.println("Gleiche Währungen, Umrechnung nicht erforderlich!");
+				System.out.println("Gleiche Währungen, Umrechnung nicht erforderlich!\n");
 			else
 				calculate(first, second);
 		} while (run);
 	}
 
 	/**
-	 * 
-	 * 
-	 * In der calculate-Methode wird die WÃ¤hrung umgerechnet und auf 2 Stellen nach
+	 * In der calculate-Methode wird die Währung umgerechnet und auf 2 Stellen nach
 	 * dem Komma gerundet
 	 * 
 	 * @param currency1 ist der Index der Augangswährung
 	 * @param currency2 ist der Index der Währung, in die umgerechnet werden soll
 	 */
 	private static void calculate(int currency1, int currency2) {
-		System.out.println("Geben sie einen gewünschten Betrag in " + giveCurrencySymbol(currency1) + " ein:");
-		double number1 = r.liesDezimalzahl(Double.MIN_VALUE, Double.MAX_VALUE);
+		System.out.println("Geben sie einen gewÃ¼nschten Betrag in " + giveCurrencySymbol(currency1) + " ein:");
+		double number1 = r.liesDezimalzahl(Double.MAX_VALUE, Double.MIN_VALUE);
 		double number2 = number1 * currencyRate[currency1 - 1][currency2 - 1];
 		String number2AsString = String.format("%.2f", number2);
 
@@ -65,7 +62,7 @@ public class Umrechner {
 	}
 
 	/**
-	 * Die giveCurrencySymbol gibt das WÃ¤hrungssymbol abhäning von dem
+	 * Die giveCurrencySymbol gibt das Währungssymbol abhäning von dem
 	 * eingebebenen Index aus
 	 * 
 	 * @param currency ist der Index der Währung, dessen Symbol ausgegeben werden
