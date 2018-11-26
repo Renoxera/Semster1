@@ -14,9 +14,9 @@ import de.hsw.gdp.helper.SimpleReader;
  * 
  */
 public class AufgabenSpeicher {
-	protected ArrayList<Aufgabe> alleAufgaben, erledigteAufgaben, unerledigteAufgaben;
+	private ArrayList<Aufgabe> alleAufgaben, erledigteAufgaben, unerledigteAufgaben;
 
-	protected static int[] spaltenbreite = { 30, 8, 7 };
+	private static int[] spaltenbreite = { 30, 8, 7 };
 
 	/**
 	 * legt die in der AufgabenVerwaltung gespeicherten Listen an.

@@ -12,7 +12,7 @@ import de.hsw.gdp.helper.SimpleReader;
 public class AufgabenVerwaltung {
 	public static void main(String[] args) {
 		AufgabenSpeicher a = new AufgabenSpeicher();
-//		beispielBelegung(a);
+		beispielBelegung(a);
 		boolean schleife = true;
 		int eingabe;
 		do {
@@ -110,6 +110,7 @@ public class AufgabenVerwaltung {
 		a.fuegeAufgabeHinzu("Test15", "f", "10.10.1000,01:00");
 		a.fuegeAufgabeHinzu("Test16", "nein", "10.10.1000,01:00");
 		a.fuegeAufgabeHinzu("Test17", "0", "10.10.3000,01:00");
+		a.fuegeAufgabeHinzu("Test17", "0", "10.10.13000,01:00");
 		a.fuegeAufgabeHinzu("Test18", "0", "10.10.2000,01:00");
 		a.fuegeAufgabeHinzu("Test19", "0", "10.10.1000,01:00");
 		a.fuegeAufgabeHinzu("Test20", "2", "10.10.1000,01:00");
